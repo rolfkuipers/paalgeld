@@ -1,1 +1,1 @@
-<?php echo $title ?>
+<?php echo '<h1>'.$title.'</h2>' ?>
