@@ -1,7 +1,5 @@
 <?php 
 
-
-
 public function index() {
 	//eventueel database logica en data verwerken
 	include('config/database.php');
