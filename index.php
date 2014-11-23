@@ -10,7 +10,7 @@ if (isset($_GET['page'])) {
 
 } else {
 	//load default page
-
+	echo 'Include start.php';
 	include('includes/start.php');
 }
 
