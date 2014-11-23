@@ -5,7 +5,7 @@ public function index() {
 	include('config/database.php');
 
 	$title = 'Dit is een test';
-
+	echo 'Start uitvoeren';
 
 	//uiteindelijk view laden
 	include('views/header.php');
