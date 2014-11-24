@@ -2,7 +2,19 @@
 
       <div class="content">
         <h1><?php echo $title; ?></h1>
-        <p class="lead">Dit is het standaard Bootstrap thema. Dit zouden we kunnen gebruiken voor het frontend</p>
-      </div>
+        <?php
+        echo '<table class="table">'
+        foreach (array_keys($data) as $key) {
+        	echo '<th>'.$key.'</th>';
+        }
+        foreach ($data as $value) {
+        	echo '<td>'.$value.'</td>';
+        }
+
+        echo '</table>';
+        ?>
+
+
+        </div>
 
     </div><!-- /.container -->

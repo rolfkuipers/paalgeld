@@ -3,6 +3,8 @@
 function index() {
 	//eventueel database logica en data verwerken
 	include('config/database.php');
+	$query = mysql_query("SELECT * FROM paalgeld");
+	$data = mysql_fetch_array($query, MYSQL_ASSOC);
 
 	$title = 'Dit is een test';
 	
