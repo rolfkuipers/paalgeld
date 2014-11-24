@@ -1,8 +1,13 @@
 <?php 
 
 function index() {
+
+	$data_types['port'] = 'Ports';
+	$data_types['country'] = 'Countries';
+
 	$org_date_from = '1742';
 	$org_date_to = '1817';
+	
 	include('config/database.php');
 	if (!isset($_POST['type'])) {
 		//set default data

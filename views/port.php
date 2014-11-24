@@ -16,8 +16,8 @@
         foreach ($data as $entry) {
             echo '<tr>';
             echo '<td>'.$entry['day'].'-'.$entry['month'].'-'.$entry['year'].'</td>';
-            echo '<td>'.$entry['captain fam name'].', '.$entry['captain first names'].'</td>';
-            echo '<td>'.$entry['shipname'].'</td>';
+            echo '<td><a href="index.php?page=captain&captain_name='.$entry['captain fam name'].'">'.$entry['captain fam name'].', '.$entry['captain first names'].'</a></td>';
+            echo '<td><a href="index.php?page=ship&ship_name='.$entry['shipname'].'">'.$entry['shipname'].'</a></td>';
             
             echo '<td>'.$entry['tax-decimal'].'</td>';
             echo '</tr>';

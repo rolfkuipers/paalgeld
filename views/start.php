@@ -15,8 +15,8 @@
             echo '<tr>';
             echo '<td>'.$entry['day'].'-'.$entry['month'].'-'.$entry['year'].'</td>';
             echo '<td><a href="index.php?page=captain&captain_name='.$entry['captain fam name'].'">'.$entry['captain fam name'].', '.$entry['captain first names'].'</a></td>';
-            echo '<td><a href="index.php?page=ship&shipname='.$entry['shipname'].'">'.$entry['shipname'].'</a></td>';
-            echo '<td>'.$entry['port of origin'].' ('.$entry['Modern Country'].')</td>';
+            echo '<td><a href="index.php?page=ship&ship_name='.$entry['shipname'].'">'.$entry['shipname'].'</a></td>';
+            echo '<td><a href="index.php?page=port&port_name='.$entry['port of origin'].'">'.$entry['port of origin'].'</a> ('.$entry['Modern Country'].')</td>';
             echo '<td>'.$entry['tax-decimal'].'</td>';
             echo '</tr>';
         }
@@ -27,3 +27,5 @@
         </div>
 
     </div><!-- /.container -->
+
+    http://localhost:8888/paalgeld/index.php?page=ship&shipname=HARMONIE

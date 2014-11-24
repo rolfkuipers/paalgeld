@@ -6,8 +6,15 @@
 			<div class="form-group">
 				<label for="data">Select data:</label>
 				<select name="type" class="form-control">
-					<option value="country">Countries</option>
-					<option value="port">Ports</option>
+
+					<?php foreach ($data_types as $key => $data_type) {
+						if ($type == $key) {
+							echo '<option value="'.$key.'" selected="selected">'.$data_type.'</option>';
+						} else {
+							echo '<option value="'.$key.'">'.$data_type.'</option>';
+						}
+					}
+					?>
 				</select>
 			</div>
 			<div class="form-group">
@@ -15,7 +22,13 @@
 				<select name="date_from" class="form-control">
 					<?php 
 					foreach (range($org_date_from, $org_date_to) as $period) {
-						echo '<option>'.$period.'</option>';
+						
+						if ($period == $_POST['date_from']) {
+							echo '<option selected="selected">'.$period.'</option>';
+						} else {
+							echo '<option>'.$period.'</option>';
+						}
+						
 					}
 					?>
 				</select>
@@ -25,8 +38,8 @@
 				<select name="date_to" class="form-control">
 					<?php 
 					
-					foreach (range($date_from, $date_to) as $period) {
-						if ($period == $date_to) {
+					foreach (range($date_to, $date_from) as $period) {
+						if ($period == $_POST['date_to']) {
 							echo '<option selected="selected">'.$period.'</option>';
 						} else {
 							echo '<option>'.$period.'</option>';
@@ -39,14 +52,20 @@
 
 			<div class="checkbox">
 				<label>
-					<input name="empty_years" checked="checked" value="true" type="checkbox"> *Hide empty years
+					<?php 
+					if ($_POST['empty_years'] == 'true') {
+						echo '<input name="empty_years" checked="checked" value="true" type="checkbox"> *Hide empty years';
+					} else {
+						echo '<input name="empty_years" value="true" type="checkbox"> *Hide empty years';
+					}
+					?>
+					
 				</label>
 			</div>
 			<button type="submit" class="btn btn-default">Load</button>
 		</form>
 		<hr/>
 		<?php
-		echo $date_from.' - '.$date_to;
 		echo '<table class="table table-bordered table-striped">';
 		echo '<th>Ports</th>';
     //list of all the years for table header
