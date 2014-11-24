@@ -6,11 +6,11 @@ error_reporting(-1);
 ini_set('error_reporting', E_ALL);
 
 if (isset($_GET['page'])) {
+	
 	include('includes/'.$_GET['page'].'.php');
 
 } else {
 	//load default page
-	echo 'Include start.php';
 	include('includes/start.php');
 }
 

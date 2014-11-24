@@ -1,11 +1,15 @@
 <?php
 //connect to database
 $host="localhost";
-$username="knr17455_paal";
-$password="paalgeld";
-$db_name="knr17455_paalgeld";
+$username="root";
+$password="root";
+$db_name="paal";
 
 
-mysql_connect("$host", "$username", "$password")or die("cannot connect to server");
-mysql_select_db("$db_name")or die("cannot select db"); 
+$mysqli = new mysqli($host, $username, $password, $db_name);
+	
+	if (mysqli_connect_errno()) {
+		printf("Connect failed: %s\n", mysqli_connect_error());
+		exit();
+	}
 ?>

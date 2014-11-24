@@ -3,11 +3,11 @@
 function index() {
 	//eventueel database logica en data verwerken
 	include('config/database.php');
-	$query = mysql_query("SELECT * FROM paalgeld");
-	$data = mysql_fetch_array($query, MYSQL_ASSOC);
-
-	$title = 'Dit is een test';
-	
+	$query = "SELECT paalgeld.*, places.`Modern Country` FROM `paalgeld` LEFT JOIN places ON paalgeld.soundcode = places.Kode";
+	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+	while($row = $result->fetch_assoc()) {
+		$data[] = $row;	
+	}
 
 	//uiteindelijk view laden
 	include('views/header.php');
