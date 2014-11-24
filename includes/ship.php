@@ -6,6 +6,7 @@ function index(){
 	$query = "SELECT count(`shipname`) as nName, `shipname`  FROM `paalgeld` GROUP BY `shipname` ORDER BY `shipname` asc";
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	while($row = $result->fetch_assoc()) {
+		$row['goods-value'] = $row['tax-decimal'] * 500;
 		$data[] = $row;	
 	}
 	
@@ -22,6 +23,7 @@ function ship($shipname) {
 	$query = "SELECT * FROM `paalgeld` WHERE `shipname` = '".addslashes($shipname)."' ";
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	while($row = $result->fetch_assoc()) {
+		$row['goods-value'] = $row['tax-decimal'] * 500;
 		$data[] = $row;	
 	}
 

@@ -6,6 +6,7 @@ function index(){
 	$query = "SELECT count(`captain fam name`) as nName, `captain fam name`  FROM `paalgeld` GROUP BY `captain fam name` ORDER BY `captain fam name` asc";
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	while($row = $result->fetch_assoc()) {
+		$row['goods-value'] = $row['tax-decimal'] * 500;
 		$data[] = $row;	
 	}
 	
@@ -21,6 +22,7 @@ function captain($captain_name) {
 	$query = "SELECT paalgeld.*, places.`Modern Country` FROM `paalgeld` LEFT JOIN places ON paalgeld.soundcode = places.Kode WHERE paalgeld.`captain fam name` = '".$captain_name."' ";
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	while($row = $result->fetch_assoc()) {
+		$row['goods-value'] = $row['tax-decimal'] * 500;
 		$data[] = $row;	
 	}
 	

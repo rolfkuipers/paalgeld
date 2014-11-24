@@ -6,6 +6,7 @@ function index(){
 	$query = "SELECT count(`port of origin`) as nName, `port of origin`  FROM `paalgeld` GROUP BY `port of origin` ORDER BY `port of origin` asc";
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	while($row = $result->fetch_assoc()) {
+		$row['goods-value'] = $row['tax-decimal'] * 500;
 		$data[] = $row;	
 	}
 	
@@ -21,6 +22,7 @@ function port($port_name) {
 	$query = "SELECT * FROM `paalgeld` WHERE `port of origin` = '".$port_name."' ";
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	while($row = $result->fetch_assoc()) {
+		$row['goods-value'] = $row['tax-decimal'] * 500;
 		$data[] = $row;	
 	}
 	
