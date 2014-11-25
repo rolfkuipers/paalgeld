@@ -33,7 +33,6 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Home</a></li>
-            <li><a href="index.php?page=table">Draaitabel</a></li>
             <li><a href="index.php?page=captain">All captains</a></li>
             <li><a href="index.php?page=ship">All ships</a></li>
             <li><a href="index.php?page=port">All ports</a></li>
