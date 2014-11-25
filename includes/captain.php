@@ -34,7 +34,7 @@ function captain($captain_name) {
 	$query = "SELECT paalgeld.* , places.`Stednavn` as places_name, places.`Modern Country` as places_country  
 		FROM `paalgeld` 
 		LEFT JOIN places ON paalgeld.`soundcode` = places.`Kode` 
-		WHERE paalgeld.`captain fam name` = '".$captain_name."' ";
+		WHERE paalgeld.`captain fam name` = '".addslashes($captain_name)."' ";
 	
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	while($row = $result->fetch_assoc()) {

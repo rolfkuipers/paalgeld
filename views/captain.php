@@ -2,7 +2,7 @@
     
       <div class="content">
      <h2>Overview for <?php echo $captain_name; ?></h2>
-     <a href="index.php" class="btn btn-default">Terug</a>
+     
      <hr/>
         <?php
         echo '<table class="table table-bordered table-striped">';
