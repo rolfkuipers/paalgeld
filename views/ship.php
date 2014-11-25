@@ -16,8 +16,8 @@
             echo '<tr>';
             echo '<td>'.$entry['day'].'-'.$entry['month'].'-'.$entry['year'].'</td>';
             echo '<td><a href="index.php?page=captain&captain_name='.$entry['captain fam name'].'">'.$entry['captain fam name'].', '.$entry['captain first names'].'</a></td>';
-            echo '<td><a href="index.php?page=port&port_name='.$entry['port of origin'].'">'.$entry['port of origin'].'</a> ('.$entry['Modern Country'].')</td>';
-             echo '<td>'.$entry['goods-value'].'</td>';
+            echo '<td><a href="index.php?page=port&port_soundcode='.$entry['soundcode'].'">'.$entry['port_name'].'</a> ('.$entry['country_name'].')</td>';
+             echo '<td>'.$entry['goods_value'].'</td>';
             echo '</tr>';
         }
         echo '</table>'

@@ -37,6 +37,7 @@
             <li><a href="index.php?page=captain">All captains</a></li>
             <li><a href="index.php?page=ship">All ships</a></li>
             <li><a href="index.php?page=port">All ports</a></li>
+            <li><a href="index.php?page=country">All countries</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->

@@ -1,40 +1,16 @@
 <?php 
 #	Chris Pool
 #	25-11-2014
-#	includes/captain.php
+#	includes/country.php
 
 function index(){
-	//get all  distinct captains
+	//get all  countries
 	include('config/database.php');
-	$query = "SELECT count(`captain fam name`) as nName, `captain fam name`, `tax-decimal`
+	$query = "SELECT paalgeld.*, places.`Modern Country` as places_country , count(places.`Stednavn`) as nName
 		FROM `paalgeld` 
-		GROUP BY `captain fam name` 
-		ORDER BY `captain fam name` asc";
-	
-	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
-	while($row = $result->fetch_assoc()) {
-		/*
-		Calculate value of goods, tax is 2%, 
-		so tax-decimal * 500 gives total amount
-		*/
-		$row['goods-value'] = $row['tax-decimal'] * 500;
-		$data[] = $row;	
-	}
-	
-	//Load view
-	include('views/header.php');
-	include('views/all_captains.php');
-	include('views/footer.php');
-}
-
-function captain($captain_name) {
-	//load specific captain
-	include('config/database.php');
-	
-	$query = "SELECT paalgeld.* , places.`Stednavn` as places_name, places.`Modern Country` as places_country  
-		FROM `paalgeld` 
-		LEFT JOIN places ON paalgeld.`soundcode` = places.`Kode` 
-		WHERE paalgeld.`captain fam name` = '".$captain_name."' ";
+		LEFT JOIN places ON paalgeld.`soundcode` = places.`Kode`
+		GROUP BY places.`Modern Country` 
+		ORDER BY places.`Modern Country` asc";
 	
 	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
 	while($row = $result->fetch_assoc()) {
@@ -44,7 +20,41 @@ function captain($captain_name) {
 		*/
 		$row['goods_value'] = $row['tax-decimal'] * 500;
 
+		/*
+		Check if the modern country name is available
+		otherwise use 'Unknown'
+		*/
+		if (isset($row['places_country'])) {
+			$row['country_name'] = $row['places_country'];
+		} else {
+			$row['country_name'] = 'Unknown';		
+		}
+		$data[] = $row;	
+	}
+	
+	//load views
+	include('views/header.php');
+	include('views/all_countries.php');
+	include('views/footer.php');
+}
+
+function country($country_name) {
+	//get specific country
+	include('config/database.php');
+	$query = "SELECT places.*, paalgeld.*, places.`Modern Country` as places_country 
+		FROM `places` 
+		RIGHT JOIN paalgeld ON places.`Kode` = paalgeld.`soundcode`
+		WHERE places.`Modern Country` = '".$country_name."' ";
+	
+	$result = $mysqli->query($query) or die($mysqli->error.__LINE__);
+	while($row = $result->fetch_assoc()) {
 		
+		/*
+		Calculate value of goods, tax is 2%, 
+		so tax-decimal * 500 gives total amount
+		*/
+		$row['goods_value'] = $row['tax-decimal'] * 500;
+
 		/*
 		Check if the modern country name is available
 		otherwise use 'Unknown'
@@ -67,20 +77,24 @@ function captain($captain_name) {
 			$row['port_name'] = $row['port of origin'];		
 		}
 		$data[] = $row;
+
 	}
 	
-	//load views
+	//uiteindelijk view laden
 	include('views/header.php');
-	include('views/captain.php');
+	include('views/country.php');
 	include('views/footer.php');
 }
 
-if (isset($_GET['captain_name'])) {
-	captain($_GET['captain_name']);
+
+
+
+if (isset($_GET['country_name'])) {
+	country($_GET['country_name']);
 } else {
 	index();
 }
-
+//werken met functies maakt het mogelijk om later met subpaginas te werken
 
 
 ?>

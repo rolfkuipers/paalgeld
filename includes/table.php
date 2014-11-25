@@ -54,7 +54,7 @@ function index() {
 		} else {
 
 		}
-		$data[$row['y']][$row['period']] = array('tax' => $row['tax'], 'times' => $row['times']); 	
+		$data[$row['y']][$row['period']] = array('goods_value' => $row['tax'] * 500, 'times' => $row['times']); 	
 	}
 
 	//uiteindelijk view laden

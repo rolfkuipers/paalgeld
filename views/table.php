@@ -65,12 +65,14 @@
 			<button type="submit" class="btn btn-default">Load</button>
 		</form>
 		<hr/>
+	</div>
+</div>
 		<?php
-		echo '<table class="table table-bordered table-striped">';
-		echo '<th>Ports</th>';
+		echo '<table class="table table_full table-bordered table-striped">';
+		echo '<th>Ports/Year</th>';
     //list of all the years for table header
 		foreach (range($date_from, $date_to) as $period) {
-			echo '<th>'.$period.'</th>';
+			echo '<th><small>'.$period.'</small></th>';
 		}
 
 
@@ -79,9 +81,9 @@
 			foreach (range($date_from, $date_to) as $period) {
 				//if this data row has data for this period display it or show 0
 				if (isset($data[$key][$period])) {
-					echo '<td>'.$data[$key][$period]['tax'].'<br />'.$data[$key][$period]['times'].'</td>';
+					echo '<td><small>'.$data[$key][$period]['goods_value'].'</small></td>';
 				} else {
-					echo '<td>0/0</td>';
+					echo '<td><small>0</small></td>';
 				}
 			}
 			echo '</tr>'; //close row	
@@ -90,6 +92,6 @@
 
 		?>
 
-	</div>
 
-    </div><!-- /.container -->
+
+    <!-- /.container -->
