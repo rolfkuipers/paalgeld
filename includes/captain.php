@@ -6,7 +6,7 @@
 function index(){
 	//get all  distinct captains
 	include('config/database.php');
-	$query = "SELECT count(`captain fam name`) as nName, `captain fam name`, `tax-decimal`
+	$query = "SELECT `captain first names`, count(`captain fam name`) as nName, `captain fam name`, `tax-decimal`
 		FROM `paalgeld` 
 		GROUP BY `captain fam name` 
 		ORDER BY `captain fam name` asc";
@@ -17,13 +17,14 @@ function index(){
 		Calculate value of goods, tax is 2%, 
 		so tax-decimal * 500 gives total amount
 		*/
-		$row['goods-value'] = $row['tax-decimal'] * 500;
+		$row['goods_value'] = $row['tax-decimal'] * 500;
 		$data[] = $row;	
 	}
 	
 	//Load view
 	include('views/header.php');
 	include('views/all_captains.php');
+	
 	include('views/footer.php');
 }
 
