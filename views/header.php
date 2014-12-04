@@ -83,7 +83,7 @@
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> Lastgeld<b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-th-list"></span> Project<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a target="_blank" href="http://server.reinardvandalen.nl/paalgeldeuropa">Paalgeld Europa</a></li>
                     <li><a target="_blank" href="#">Paalgeld West-Indi&euml;</a></li>

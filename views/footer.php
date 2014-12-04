@@ -12,5 +12,8 @@
     $('#all_captains_table').DataTable();
 } );
     </script>
+
+    
+    
   </body>
 </html>

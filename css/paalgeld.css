@@ -5,3 +5,54 @@
 .table_full {
 	margin:5px;
 }
+html,
+body{
+	background-image: url('ship.jpg');
+	height:100%;
+}
+
+h4 {
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+	font-size: 22px;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	color: #F0FDFF;
+}
+
+.header {
+	background-image: url('stardust.png');
+	width: 100%	;
+	
+	border-bottom-style: solid;
+	border-bottom-color: #D5EDF0;
+	border-bottom-width: 1px;
+	margin-bottom: 20px;
+	
+
+}
+.wrapper {
+	margin-top: 0px;
+	padding-left: 50px;
+	padding-right:	50px;
+}
+
+.container2{
+	min-height: 100%;
+	height: auto !important;
+	
+	margin: 0 auto -4em;
+}
+
+.content {
+	margin-top: 10px;
+	background-color:rgba(240,240,240,0.5);
+	
+	}
+
+
+
+
+.row h1 {
+	font-size: 24px;
+}
+
